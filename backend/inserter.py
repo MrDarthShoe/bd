@@ -2,7 +2,7 @@
 import pymysql.cursors
 import random
 
-def insert(start_response):   
+def insert(start_response):
     connection = pymysql.connect(host='172.18.0.1',
                              user='root',
                              password='123',
@@ -20,7 +20,7 @@ def insert(start_response):
             start_response("200 OK", [("Content-Type", "text/plain"),
                               ("Content-Encoding", "utf-8")])
     except:
-             start_response("500", [("Content-Type", "text/plain"),
+            start_response("500", [("Content-Type", "text/plain"),
                               ("Content-Encoding", "utf-8")])
     finally:
         connection.close()
