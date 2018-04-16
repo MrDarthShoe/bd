@@ -12,4 +12,6 @@ CMD [ "uwsgi", "--socket", "0.0.0.0:3031", \
                "--uid", "uwsgi", \
                "--plugins", "python3", \
                "--protocol", "uwsgi", \
-               "--wsgi", "main:application" ]
+               "--wsgi", "main:application", \
+               "--enable-threads", \
+               "--processes", "4"  ]

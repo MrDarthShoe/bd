@@ -1,17 +1,10 @@
-
-from pyfiglet import Figlet
-import wypozyczaj
-
-figlet = Figlet(font="slant")
-
+#!/usr/bin/python3
+import inserter
 def application(environ, start_response):
-#    yield figlet.renderText("borysion").encode("utf-8")
 
-    wypozyczaj.transaction()
-    
-    start_response("200 OK", [("Content-Type", "text/plain"),
-                              ("Content-Encoding", "utf-8")])
+    inserter.insert(start_response)
     for k, v in environ.items():
         yield f"{k:>20} => {v}".encode("utf-8")
-
-
+"""
+sudo docker-compose build --no-cache && sudo docker-compose stop && sudo docker-compose rm -f && sudo docker-compose up -d
+"""
