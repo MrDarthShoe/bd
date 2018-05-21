@@ -20,7 +20,7 @@ def insert(start_response):
             start_response("200 OK", [("Content-Type", "text/plain"),
                               ("Content-Encoding", "utf-8")])
     except:
-            start_response("500", [("Content-Type", "text/plain"),
+            start_response('500 INTERNAL SERVER ERROR', [("Content-Type", "text/plain"),
                               ("Content-Encoding", "utf-8")])
     finally:
         connection.close()

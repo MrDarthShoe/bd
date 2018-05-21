@@ -14,4 +14,4 @@ CMD [ "uwsgi", "--socket", "0.0.0.0:3031", \
                "--protocol", "uwsgi", \
                "--wsgi", "main:application", \
                "--enable-threads", \
-               "--processes", "4"  ]
+               "--processes", "40"  ]
