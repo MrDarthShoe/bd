@@ -15,7 +15,7 @@ def setVariable(variable_name, variable_value):
     my_server.hset(variable_name, variable_value)
     
 def insert(start_response): 
-    try:
+    #try:
         rental_id=int(getVariable("last_rental_id"))+1
         payment_id=int(getVariable("last_payment_id"))+1
 
@@ -29,7 +29,7 @@ def insert(start_response):
         p.hset("rental:"+str(rental_id), 'customer_id', '1')
         p.hset("rental:"+str(rental_id), 'staff_id', '1')
 
-        p.hset("payment:"+str(payment_id), 'rental_id', payment_id)
+        p.hset("payment:"+str(payment_id), 'payment_id', payment_id)
         p.hset("payment:"+str(payment_id), 'inventory_id', '1')
         p.hset("payment:"+str(payment_id), 'customer_id', '1')
         p.hset("payment:"+str(payment_id), 'staff_id', '1')
@@ -37,8 +37,8 @@ def insert(start_response):
 
         p.execute()
         start_response("200 OK", [("Content-Type", "text/plain"),("Content-Encoding", "utf-8")])
-    except:
-        print("Unexpected error:", sys.exc_info()[0])
-        start_response('500 INTERNAL SERVER ERROR', [("Content-Type", "text/plain"),("Content-Encoding", "utf-8")])
+    #except:
+        #print("Unexpected error:", sys.exc_info()[0])
+        #start_response('500 INTERNAL SERVER ERROR', [("Content-Type", "text/plain"),("Content-Encoding", "utf-8")])
 
 
